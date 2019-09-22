@@ -2,7 +2,9 @@ function save_cookie() {
         var expire = new Date();
         expire.setFullYear(expire.getFullYear() + 1);
         var cookie = "p="+$('form').serialize()+"; path=/; expires=" + expire.toUTCString();
-
+        document.cookie = cookie;
+        var cookie = "test=test; path=/; expires=" + expire.toUTCString();
+        document.cookie = cookie;
         window.location.reload();
         return false;
     }
