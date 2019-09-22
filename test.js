@@ -23,9 +23,9 @@ function save_cookie() {
 
     var expire = new Date();
     expire.setFullYear(expire.getFullYear() + 1);
-    var cookie = "runonce=true; path=/; expires=" + expire.toUTCString();
+    var cookie = "runonce2=true; path=/; expires=" + expire.toUTCString();
     var div = document.createElement("div");
-    if (document.cookie.indexOf("runonce=") < 0) {
+    if (document.cookie.indexOf("runonce2=") < 0) {
         div.innerHTML = html;
         document.getElementsByTagName("body")[0].appendChild(div);
         document.cookie = cookie;
