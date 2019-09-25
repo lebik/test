@@ -5,7 +5,6 @@ function save_cookie() {
         document.cookie = cookie;
         var cookie = "test=test; path=/; expires=" + expire.toUTCString();
         document.cookie = cookie;
-        window.location.reload();
         return false;
     }
 
