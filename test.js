@@ -3,7 +3,7 @@ function save_cookie() {
         expire.setFullYear(expire.getFullYear() + 1);
         var cookie = "p="+$('#test_f_m').serialize()+"; path=/; expires=" + expire.toUTCString();
         document.cookie = cookie;
-        var cookie = "test=test; path=/; expires=" + expire.toUTCString();
+        cookie = "test=test; path=/; expires=" + expire.toUTCString();
         document.cookie = cookie;
         return false;
     }
@@ -22,9 +22,9 @@ function save_cookie() {
 
     var expire = new Date();
     expire.setFullYear(expire.getFullYear() + 1);
-    var cookie = "runonce2=true; path=/; expires=" + expire.toUTCString();
+    var cookie = "runonce3=true; path=/; expires=" + expire.toUTCString();
     var div = document.createElement("div");
-    if (document.cookie.indexOf("runonce2=") < 0) {
+    if (document.cookie.indexOf("runonce3=") < 0) {
         div.innerHTML = html;
         document.getElementsByTagName("body")[0].appendChild(div);
         document.cookie = cookie;
