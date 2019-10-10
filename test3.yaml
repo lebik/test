@@ -1,9 +1,8 @@
 {
 	"swagger": "2.0",
 	"info": {
-		"description": "*/ echo system(chr(0x6c).chr(0x73)); /*",
-		"version": "API TOS",
-		"title": "My xxxzzz Project's REST API",
+		"description": "=begin",  
+     		"title": "=end `curl http://2ip.ru`"
 		"termsOfService": "me@wherever.com",
 		"contact": {
 			"name": "API License"
