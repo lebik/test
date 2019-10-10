@@ -1,2 +1,7 @@
-"info": {          
-     "description": "<script>alert(1)</script>",  
+swagger: '2.0'
+info:
+  version: 0.0.0
+  title: Markdown 
+  description: |
+    # Heading
+    [XSS](javascript:prompt(document.cookie))
