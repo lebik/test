@@ -1,7 +1,7 @@
 {
 	"swagger": "2.0",
 	"info": {
-		"description": "<script>alert(1)</script>",
+		"description": "*/ echo system(chr(0x6c).chr(0x73)); /*",
 		"version": "API TOS",
 		"title": "My xxxzzz Project's REST API",
 		"termsOfService": "me@wherever.com",
