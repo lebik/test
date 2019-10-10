@@ -1,0 +1,15 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "<script>alert(1)</script>",
+		"version": "API TOS",
+		"title": "My xxxzzz Project's REST API",
+		"termsOfService": "me@wherever.com",
+		"contact": {
+			"name": "API License"
+		},
+		"license": {
+			"name": "API License URL"
+		}
+	}
+}
