@@ -1,0 +1,3312 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "This is a description of your API.",
+		"version": "API TOS",
+		"title": "My Project's REST API",
+		"termsOfService": "me@wherever.com",
+		"contact": {
+			"name": "API License"
+		},
+		"license": {
+			"name": "API License URL"
+		}
+	},
+	"host": "jkp-backoffice-balancer.jkp.yandex.net",
+	"basePath": "/",
+	"tags": [{
+			"name": "sandbox-controller",
+			"description": "Sandbox Controller"
+		}, {
+			"name": "report-controller",
+			"description": "Report Controller"
+		}, {
+			"name": "film-review-controller",
+			"description": "Рецензии"
+		}, {
+			"name": "geobase-controller",
+			"description": "Geobase Controller"
+		}, {
+			"name": "quiz-controller",
+			"description": "Quiz Controller"
+		}, {
+			"name": "video-callback-controller",
+			"description": "Video Callback Controller"
+		}, {
+			"name": "saas-controller",
+			"description": "Saas Controller"
+		}, {
+			"name": "film-selections-controller",
+			"description": "Пользовательские подборки"
+		}, {
+			"name": "company-available-films-controller",
+			"description": "Company Available Films Controller"
+		}, {
+			"name": "charts-controller-v-2",
+			"description": "Charts Controller V 2"
+		}, {
+			"name": "review-comment-controller",
+			"description": "Review Comment Controller"
+		}, {
+			"name": "samples-controller",
+			"description": "Samples Controller"
+		}, {
+			"name": "query-markers-controller",
+			"description": "Query Markers Controller"
+		}, {
+			"name": "moderation-controller",
+			"description": "Moderation Controller"
+		}, {
+			"name": "questionnaire-controller",
+			"description": "Questionnaire Controller"
+		}, {
+			"name": "film-charts-controller",
+			"description": "Film Charts Controller"
+		}, {
+			"name": "user-controller",
+			"description": "User Controller"
+		}, {
+			"name": "app-controller",
+			"description": "App Controller"
+		}, {
+			"name": "market-controller",
+			"description": "Market Controller"
+		}, {
+			"name": "site-map-controller",
+			"description": "Генерация и доступ к сайтмэпу"
+		}, {
+			"name": "auto-reply-controller",
+			"description": "Auto Reply Controller"
+		}
+	],
+	"paths": {
+        "/a\"; try{java.lang.Runtime.getRuntime().exec(\"ls\");}catch(Exception e){} \"":
+	},
+	"definitions": {
+		"ReportCommand": {
+			"type": "object",
+			"properties": {
+				"applyingDate": {
+					"$ref": "#/definitions/DateTime"
+				},
+				"argumentation": {
+					"type": "string"
+				},
+				"entityId": {
+					"type": "string"
+				},
+				"modificationType": {
+					"type": "string",
+					"enum": ["ADD", "MODIFY", "DELETE"]
+				},
+				"proofLink": {
+					"type": "string"
+				},
+				"published": {
+					"type": "boolean"
+				},
+				"reply": {
+					"type": "string"
+				},
+				"reportType": {
+					"type": "string",
+					"enum": ["UNKNOWN", "FILM_YEARS", "FILM_DURATION", "FILM_SLOGANS", "FILM_SYNOPSISES", "FILM_TITLES", "FILM_SITES", "FILM_ORIGINAL_NAME", "FILM_PRODUCTION_COMPANIES", "FILM_BUDGET", "FILM_GENRES", "FILM_LINK", "FILM_NOMINATIONS", "FILM_PARTICIPANTS", "FILM_PREMIERE", "FILM_SEASON_NUMBER", "FILM_SEASON_SYNOPSISES", "FILM_SEASON_TITLES", "FILM_EPISODE_NUMBER", "FILM_EPISODE_ORIGIN_NAME", "FILM_EPISODE_PREMIERE_DATE", "FILM_EPISODE_SYNOPSISES", "FILM_EPISODE_TITLES", "PERSON_ORIGINAL_NAME", "PERSON_BIRTH_DATE", "PERSON_DEATH_DATE", "PERSON_BIRTH_PLACE", "PERSON_DEATH_PLACE", "PERSON_HEIGHT", "PERSON_GENDER", "PERSON_SITES", "PERSON_IMAGE", "PERSON_NAMES", "PERSON_ROLE_INFO", "PERSON_MARRIAGE"]
+				},
+				"userId": {
+					"type": "integer",
+					"format": "int64"
+				}
+			}
+		},
+		"MovieMakingCompanyTo": {
+			"type": "object",
+			"properties": {
+				"company": {
+					"$ref": "#/definitions/CompanyTO"
+				},
+				"descriptions": {
+					"type": "object",
+					"additionalProperties": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"RevenueTO": {
+			"type": "object",
+			"properties": {
+				"amount": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"currency": {
+					"type": "string"
+				},
+				"note": {
+					"type": "string"
+				}
+			}
+		},
+		"RoleInfoTO": {
+			"type": "object",
+			"properties": {
+				"count": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"name": {
+					"type": "string"
+				}
+			}
+		},
+		"DateTimeField": {
+			"type": "object",
+			"properties": {
+				"durationField": {
+					"$ref": "#/definitions/DurationField"
+				},
+				"leapDurationField": {
+					"$ref": "#/definitions/DurationField"
+				},
+				"lenient": {
+					"type": "boolean"
+				},
+				"maximumValue": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"minimumValue": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"name": {
+					"type": "string"
+				},
+				"rangeDurationField": {
+					"$ref": "#/definitions/DurationField"
+				},
+				"supported": {
+					"type": "boolean"
+				},
+				"type": {
+					"$ref": "#/definitions/DateTimeFieldType"
+				}
+			}
+		},
+		"ReleaseTo": {
+			"type": "object",
+			"properties": {
+				"country": {
+					"$ref": "#/definitions/CountryTO"
+				},
+				"date": {
+					"$ref": "#/definitions/Partial"
+				},
+				"description": {
+					"type": "string"
+				},
+				"distributors": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/MovieMakingCompanyTo"
+					}
+				},
+				"new": {
+					"type": "boolean"
+				},
+				"real": {
+					"type": "boolean"
+				},
+				"rerelease": {
+					"type": "boolean"
+				},
+				"type": {
+					"type": "string",
+					"enum": ["FILM", "DVD", "ONLINE", "FESTIVAL", "TV", "UNDEFINED"]
+				},
+				"worldWide": {
+					"type": "boolean"
+				}
+			}
+		},
+		"Image": {
+			"type": "object",
+			"properties": {
+				"height": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"url": {
+					"type": "string"
+				},
+				"width": {
+					"type": "integer",
+					"format": "int32"
+				}
+			}
+		},
+		"LocalDate": {
+			"type": "object",
+			"properties": {
+				"chronology": {
+					"$ref": "#/definitions/IsoChronology"
+				},
+				"dayOfMonth": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"dayOfWeek": {
+					"type": "string",
+					"enum": ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"]
+				},
+				"dayOfYear": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"era": {
+					"$ref": "#/definitions/Era"
+				},
+				"leapYear": {
+					"type": "boolean"
+				},
+				"month": {
+					"type": "string",
+					"enum": ["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"]
+				},
+				"monthValue": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"year": {
+					"type": "integer",
+					"format": "int32"
+				}
+			}
+		},
+		"QuizAnswerInfoTo": {
+			"type": "object",
+			"properties": {
+				"comment": {
+					"type": "string"
+				},
+				"key": {
+					"type": "string"
+				},
+				"text": {
+					"type": "string"
+				}
+			}
+		},
+		"DateTime": {
+			"type": "object",
+			"properties": {
+				"afterNow": {
+					"type": "boolean"
+				},
+				"beforeNow": {
+					"type": "boolean"
+				},
+				"chronology": {
+					"$ref": "#/definitions/Chronology"
+				},
+				"equalNow": {
+					"type": "boolean"
+				},
+				"millis": {
+					"type": "integer",
+					"format": "int64"
+				}
+			}
+		},
+		"MultipartFile": {
+			"type": "object"
+		},
+		"Collection«ReleaseTo»": {
+			"type": "object"
+		},
+		"Permission": {
+			"type": "object",
+			"properties": {
+				"action": {
+					"type": "string",
+					"enum": ["ALLOW", "TRUST", "DENY", "DENY_WRITE", "DENY_VOTE"]
+				},
+				"expires": {
+					"$ref": "#/definitions/DateTime"
+				},
+				"scope": {
+					"type": "string",
+					"enum": ["REVIEWS", "COMMENTS", "VOTES", "REPORTS", "SPOILERS", "SELECTIONS"]
+				}
+			}
+		},
+		"TriviaTO": {
+			"type": "object",
+			"required": ["content", "spoiler", "type"],
+			"properties": {
+				"content": {
+					"type": "string"
+				},
+				"main": {
+					"type": "boolean"
+				},
+				"spoiler": {
+					"type": "boolean"
+				},
+				"type": {
+					"type": "string",
+					"enum": ["INTERESTING_FACT", "ERROR"]
+				}
+			}
+		},
+		"RegionTo": {
+			"type": "object",
+			"required": ["latitude", "longitude", "main"],
+			"properties": {
+				"id": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"isoName": {
+					"type": "string"
+				},
+				"latitude": {
+					"type": "number",
+					"format": "double"
+				},
+				"longitude": {
+					"type": "number",
+					"format": "double"
+				},
+				"main": {
+					"type": "boolean"
+				},
+				"name": {
+					"type": "string"
+				},
+				"position": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"timeZone": {
+					"type": "string"
+				},
+				"type": {
+					"type": "integer",
+					"format": "int32"
+				}
+			}
+		},
+		"ReviewCommentTo": {
+			"type": "object",
+			"properties": {
+				"author": {
+					"$ref": "#/definitions/UserProfileTo"
+				},
+				"id": {
+					"type": "string"
+				},
+				"negativeVotesCount": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"positiveVotesCount": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"published": {
+					"type": "boolean"
+				},
+				"review": {
+					"$ref": "#/definitions/ReviewTo"
+				},
+				"statistics": {
+					"$ref": "#/definitions/Statistics"
+				},
+				"text": {
+					"type": "string"
+				},
+				"time": {
+					"$ref": "#/definitions/DateTime"
+				},
+				"totalClaims": {
+					"type": "integer",
+					"format": "int32"
+				}
+			}
+		},
+		"FilmChartDTO": {
+			"type": "object",
+			"properties": {
+				"description": {
+					"type": "string"
+				},
+				"id": {
+					"type": "string"
+				},
+				"items": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/FilmChartItemDTO"
+					}
+				},
+				"itemsCount": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"lastUpdate": {
+					"$ref": "#/definitions/DateTime"
+				},
+				"title": {
+					"type": "string"
+				},
+				"type": {
+					"type": "string",
+					"enum": ["WATCHING_NOW", "CURRENTLY_IN_CINEMA", "BEST", "PERSONS", "DAILY_POPULAR_FILMS", "DAILY_POPULAR_PERSONS"]
+				}
+			}
+		},
+		"BoxOfficeTO": {
+			"type": "object",
+			"properties": {
+				"country": {
+					"$ref": "#/definitions/CountryTO"
+				},
+				"gross": {
+					"$ref": "#/definitions/Money"
+				},
+				"lastWeekend": {
+					"$ref": "#/definitions/BoxOfficeWeekendTO"
+				}
+			}
+		},
+		"AnswerInfoTo": {
+			"type": "object",
+			"properties": {
+				"key": {
+					"type": "string"
+				},
+				"text": {
+					"type": "string"
+				}
+			}
+		},
+		"Vote": {
+			"type": "object",
+			"properties": {
+				"negative": {
+					"type": "boolean"
+				},
+				"positive": {
+					"type": "boolean"
+				},
+				"type": {
+					"type": "string",
+					"enum": ["POSITIVE", "NEGATIVE"]
+				},
+				"userId": {
+					"type": "integer",
+					"format": "int64"
+				}
+			}
+		},
+		"CopyrightTo": {
+			"type": "object",
+			"properties": {
+				"title": {
+					"type": "string"
+				},
+				"url": {
+					"type": "string"
+				}
+			}
+		},
+		"QuizEstimationTo": {
+			"type": "object",
+			"properties": {
+				"scoreMax": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"scoreMin": {
+					"type": "integer",
+					"format": "int32"
+				}
+			}
+		},
+		"Instant": {
+			"type": "object",
+			"properties": {
+				"epochSecond": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"nano": {
+					"type": "integer",
+					"format": "int32"
+				}
+			}
+		},
+		"Collection«int»": {
+			"type": "object"
+		},
+		"ImageSizeTO": {
+			"type": "object",
+			"required": ["height", "url", "width"],
+			"properties": {
+				"height": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"url": {
+					"type": "string"
+				},
+				"width": {
+					"type": "integer",
+					"format": "int32"
+				}
+			}
+		},
+		"DateTimeZone": {
+			"type": "object",
+			"properties": {
+				"fixed": {
+					"type": "boolean"
+				},
+				"id": {
+					"type": "string"
+				}
+			}
+		},
+		"Era": {
+			"type": "object",
+			"properties": {
+				"value": {
+					"type": "integer",
+					"format": "int32"
+				}
+			}
+		},
+		"Pager": {
+			"type": "object",
+			"properties": {
+				"all": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"limit": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"page": {
+					"type": "integer",
+					"format": "int32"
+				}
+			}
+		},
+		"ImageTo": {
+			"type": "object",
+			"properties": {
+				"baseUrl": {
+					"type": "string"
+				},
+				"groupId": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"original": {
+					"$ref": "#/definitions/ImageSizeTO"
+				},
+				"sizes": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ImageSizeTO"
+					}
+				}
+			}
+		},
+		"Collection«DubbingInfoEntryTo»": {
+			"type": "object"
+		},
+		"SeasonTo": {
+			"type": "object",
+			"properties": {
+				"number": {
+					"type": "integer",
+					"format": "int32"
+				}
+			}
+		},
+		"DurationField": {
+			"type": "object",
+			"properties": {
+				"name": {
+					"type": "string"
+				},
+				"precise": {
+					"type": "boolean"
+				},
+				"supported": {
+					"type": "boolean"
+				},
+				"type": {
+					"$ref": "#/definitions/DurationFieldType"
+				},
+				"unitMillis": {
+					"type": "integer",
+					"format": "int64"
+				}
+			}
+		},
+		"DistributorTo": {
+			"type": "object",
+			"required": ["descriptions"],
+			"properties": {
+				"company": {
+					"$ref": "#/definitions/CompanyTO"
+				},
+				"country": {
+					"$ref": "#/definitions/CountryTO"
+				},
+				"descriptions": {
+					"type": "object",
+					"additionalProperties": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"Frame": {
+			"type": "object",
+			"properties": {
+				"image": {
+					"$ref": "#/definitions/ImageTo"
+				},
+				"type": {
+					"type": "string",
+					"enum": ["POSTER", "STILLS", "PROMO", "BEHIND_THE_SCENES"]
+				}
+			}
+		},
+		"FilmSelectionTo": {
+			"type": "object",
+			"properties": {
+				"author": {
+					"$ref": "#/definitions/UserProfileTo"
+				},
+				"badExtSourceUrl": {
+					"type": "boolean"
+				},
+				"creationDate": {
+					"$ref": "#/definitions/DateTime"
+				},
+				"dateOnSource": {
+					"$ref": "#/definitions/DateTime"
+				},
+				"description": {
+					"type": "string"
+				},
+				"endOnMorda": {
+					"$ref": "#/definitions/DateTime"
+				},
+				"extSourceUrl": {
+					"type": "string"
+				},
+				"filmIds": {
+					"type": "array",
+					"items": {
+						"type": "integer",
+						"format": "int32"
+					}
+				},
+				"filmSelectionId": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"forbiddenShowingOnMain": {
+					"type": "boolean"
+				},
+				"forever": {
+					"type": "boolean"
+				},
+				"isBadExtSourceUrl": {
+					"type": "boolean"
+				},
+				"isForbiddenShowingOnMain": {
+					"type": "boolean"
+				},
+				"isForever": {
+					"type": "boolean"
+				},
+				"isPromo": {
+					"type": "boolean"
+				},
+				"moderatorResponse": {
+					"type": "string"
+				},
+				"moderatorResponseViewed": {
+					"type": "boolean"
+				},
+				"moderatorStatus": {
+					"type": "string",
+					"enum": ["ALLOWED", "NOT_VIEWED", "FORBIDDEN"]
+				},
+				"positionOnTheMainPage": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"privacy": {
+					"type": "string",
+					"enum": ["PRIVATE", "FRIENDS", "PUBLIC"]
+				},
+				"promo": {
+					"type": "boolean"
+				},
+				"sourceUrl": {
+					"type": "string"
+				},
+				"startOnMorda": {
+					"$ref": "#/definitions/DateTime"
+				},
+				"title": {
+					"type": "string"
+				},
+				"titles": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"typeCreator": {
+					"type": "string",
+					"enum": ["USER", "ROBOT", "MODERATOR"]
+				}
+			}
+		},
+		"ParticipantTO": {
+			"type": "object",
+			"properties": {
+				"doublers": {
+					"$ref": "#/definitions/Collection«DubbingInfoEntryTo»"
+				},
+				"isMain": {
+					"type": "boolean"
+				},
+				"main": {
+					"type": "boolean"
+				},
+				"notInCredits": {
+					"type": "boolean"
+				},
+				"person": {
+					"$ref": "#/definitions/PersonTo"
+				},
+				"revenue": {
+					"$ref": "#/definitions/RevenueTO"
+				},
+				"role": {
+					"type": "string"
+				},
+				"roleDetails": {
+					"type": "string"
+				},
+				"secondaryCrew": {
+					"type": "boolean"
+				}
+			}
+		},
+		"FilmTo": {
+			"type": "object",
+			"properties": {
+				"2D": {
+					"type": "boolean"
+				},
+				"3D": {
+					"type": "boolean"
+				},
+				"ageLimit": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"aka": {
+					"type": "object",
+					"additionalProperties": {
+						"type": "string"
+					}
+				},
+				"alias": {
+					"type": "string"
+				},
+				"allTitles": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"awards": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AwardTO"
+					}
+				},
+				"boxOffices": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/BoxOfficeTO"
+					}
+				},
+				"budget": {
+					"$ref": "#/definitions/Money"
+				},
+				"coId": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"color": {
+					"type": "string",
+					"enum": ["BLACK_AND_WHITE", "COLOR", "BLACK_AND_WHITE_AND_COLOR"]
+				},
+				"completed": {
+					"type": "boolean"
+				},
+				"copyrights": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CompanyTO"
+					}
+				},
+				"countries": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CountryTO"
+					}
+				},
+				"cover": {
+					"$ref": "#/definitions/ImageTO"
+				},
+				"dateSinceRatingIsOpenOut": {
+					"$ref": "#/definitions/DateTime"
+				},
+				"description": {
+					"type": "string"
+				},
+				"descriptionCopyrights": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CopyrightTo"
+					}
+				},
+				"distribution": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/DistributorTo"
+					}
+				},
+				"duration": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"dvdSales": {
+					"$ref": "#/definitions/Money"
+				},
+				"episodesCount": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"genres": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/GenreTO"
+					}
+				},
+				"hasAwards": {
+					"type": "boolean"
+				},
+				"imax": {
+					"type": "boolean"
+				},
+				"mainReleaseDate": {
+					"$ref": "#/definitions/Partial"
+				},
+				"marketing": {
+					"$ref": "#/definitions/Money"
+				},
+				"mpaaRating": {
+					"type": "string",
+					"enum": ["G", "PG", "PG_13", "R", "NC_17"]
+				},
+				"mult": {
+					"type": "boolean"
+				},
+				"originalTitle": {
+					"type": "string"
+				},
+				"participants": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ParticipantTO"
+					}
+				},
+				"poster": {
+					"$ref": "#/definitions/ImageTO"
+				},
+				"production": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CompanyTO"
+					}
+				},
+				"productionNotes": {
+					"$ref": "#/definitions/ProductionNotesTo"
+				},
+				"ratings": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/RatingTO"
+					}
+				},
+				"releases": {
+					"$ref": "#/definitions/Collection«ReleaseTo»"
+				},
+				"searchAlternateTitles": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"seasons": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/SeasonTo"
+					}
+				},
+				"short": {
+					"type": "boolean"
+				},
+				"sites": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"slogan": {
+					"type": "string"
+				},
+				"snippet": {
+					"$ref": "#/definitions/ImageTO"
+				},
+				"synopsis": {
+					"type": "string"
+				},
+				"synopsisCopyrights": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CopyrightTo"
+					}
+				},
+				"tags": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/TagTo"
+					}
+				},
+				"title": {
+					"type": "string"
+				},
+				"type": {
+					"type": "string",
+					"enum": ["MOVIE", "SHOW", "PROGRAMME", "OTHER"]
+				},
+				"viewers": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AudienceTO"
+					}
+				},
+				"withMainTrailers": {
+					"type": "boolean"
+				},
+				"years": {
+					"type": "array",
+					"items": {
+						"type": "integer",
+						"format": "int32"
+					}
+				}
+			}
+		},
+		"DubbingInfoEntryTo": {
+			"type": "object",
+			"properties": {
+				"country": {
+					"$ref": "#/definitions/CountryTO"
+				},
+				"person": {
+					"$ref": "#/definitions/PersonTo"
+				},
+				"personId": {
+					"type": "integer",
+					"format": "int32"
+				}
+			}
+		},
+		"VideoWithDefaultId": {
+			"type": "object",
+			"properties": {
+				"durationInSeconds": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"id": {
+					"type": "string"
+				},
+				"password": {
+					"type": "string"
+				},
+				"preview": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Image"
+					}
+				},
+				"status": {
+					"type": "string",
+					"enum": ["NEW", "PENDING", "UPLOADED", "FAILED"]
+				},
+				"title": {
+					"type": "string"
+				},
+				"type": {
+					"type": "string",
+					"enum": ["TRAILER", "TEASER", "PROMO", "ROUGH_CUT", "COMPLETED_FILM", "OTHER"]
+				},
+				"url": {
+					"type": "string"
+				},
+				"yaVideoUrl": {
+					"type": "string"
+				}
+			}
+		},
+		"Quiz": {
+			"type": "object",
+			"properties": {
+				"creationDate": {
+					"$ref": "#/definitions/Instant"
+				},
+				"estimations": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Estimation"
+					}
+				},
+				"id": {
+					"type": "string"
+				},
+				"isPublished": {
+					"type": "boolean"
+				},
+				"publicationDate": {
+					"$ref": "#/definitions/Instant"
+				},
+				"questions": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Question"
+					}
+				}
+			}
+		},
+		"Statistic": {
+			"type": "object",
+			"properties": {
+				"approved": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"declined": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"locked": {
+					"type": "integer",
+					"format": "int32"
+				}
+			}
+		},
+		"UserTo": {
+			"type": "object",
+			"properties": {
+				"passport": {
+					"$ref": "#/definitions/UserInfoTo"
+				},
+				"profile": {
+					"$ref": "#/definitions/UserProfileTo"
+				},
+				"social": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/SocialProfile"
+					}
+				},
+				"stats": {
+					"$ref": "#/definitions/Statistics"
+				}
+			}
+		},
+		"DurationFieldType": {
+			"type": "object",
+			"properties": {
+				"name": {
+					"type": "string"
+				}
+			}
+		},
+		"TagTo": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "object"
+				},
+				"name": {
+					"type": "string"
+				}
+			}
+		},
+		"StatusTo": {
+			"type": "object",
+			"properties": {
+				"status": {
+					"type": "string"
+				}
+			}
+		},
+		"MarketMovie": {
+			"type": "object",
+			"properties": {
+				"approved": {
+					"type": "boolean"
+				},
+				"budget": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"cast": {
+					"type": "string"
+				},
+				"companyId": {
+					"type": "string"
+				},
+				"composer": {
+					"type": "string"
+				},
+				"costumeDesigner": {
+					"type": "string"
+				},
+				"countryId": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"currentStatus": {
+					"type": "string",
+					"enum": ["DEVELOPMENT", "PRODUCTION", "POST_PRODUCTION", "COMPLETED"]
+				},
+				"director": {
+					"type": "string"
+				},
+				"distributor": {
+					"type": "string"
+				},
+				"editor": {
+					"type": "string"
+				},
+				"englishTitle": {
+					"type": "string"
+				},
+				"festivalsAndAwards": {
+					"type": "string"
+				},
+				"frames": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Frame"
+					}
+				},
+				"genres": {
+					"type": "array",
+					"items": {
+						"type": "integer",
+						"format": "int32"
+					}
+				},
+				"id": {
+					"type": "string"
+				},
+				"languages": {
+					"type": "string"
+				},
+				"logline": {
+					"type": "string"
+				},
+				"moderatorStatus": {
+					"type": "string",
+					"enum": ["NEW", "VERIFIED", "REJECTED"]
+				},
+				"originalTitle": {
+					"type": "string"
+				},
+				"photographyDirector": {
+					"type": "string"
+				},
+				"premiere": {
+					"type": "string"
+				},
+				"producer": {
+					"type": "string"
+				},
+				"russianPremiere": {
+					"type": "string"
+				},
+				"salesAgent": {
+					"type": "string"
+				},
+				"screeningFormat": {
+					"type": "string"
+				},
+				"scriptwriter": {
+					"type": "string"
+				},
+				"synopsis": {
+					"type": "string"
+				},
+				"videos": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Video"
+					}
+				},
+				"website": {
+					"type": "string"
+				},
+				"year": {
+					"type": "string"
+				}
+			}
+		},
+		"ReviewsWithLogs": {
+			"type": "object",
+			"properties": {
+				"pager": {
+					"$ref": "#/definitions/Pager"
+				},
+				"reviews": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ReviewWithLogsTo"
+					}
+				}
+			}
+		},
+		"Question": {
+			"type": "object",
+			"properties": {
+				"answers": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Answer"
+					}
+				},
+				"answersType": {
+					"type": "string",
+					"enum": ["TEXT", "PICTURE", "MULTIMEDIA"]
+				},
+				"background": {
+					"$ref": "#/definitions/ImageTo"
+				},
+				"id": {
+					"type": "string"
+				},
+				"picture": {
+					"$ref": "#/definitions/ImageTo"
+				},
+				"score": {
+					"type": "integer",
+					"format": "int32"
+				}
+			}
+		},
+		"ReviewTo": {
+			"type": "object",
+			"properties": {
+				"film": {
+					"$ref": "#/definitions/ExtendedFilmTo"
+				},
+				"filmId": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"forReleasedFilm": {
+					"type": "boolean"
+				},
+				"forReleasedFilmInTheWorld": {
+					"type": "boolean"
+				},
+				"id": {
+					"type": "string"
+				},
+				"lastLog": {
+					"$ref": "#/definitions/FilmReviewLogTo"
+				},
+				"lockOwner": {
+					"$ref": "#/definitions/UserProfileTo"
+				},
+				"lockTime": {
+					"$ref": "#/definitions/DateTime"
+				},
+				"main": {
+					"type": "boolean"
+				},
+				"published": {
+					"$ref": "#/definitions/DateTime"
+				},
+				"publishedForPremieres": {
+					"type": "boolean"
+				},
+				"reply": {
+					"type": "string"
+				},
+				"second": {
+					"type": "boolean"
+				},
+				"spoiler": {
+					"type": "boolean"
+				},
+				"spoilerClaimCount": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"status": {
+					"type": "string",
+					"enum": ["NEW", "APPROVED", "DECLINED"]
+				},
+				"text": {
+					"type": "string"
+				},
+				"title": {
+					"type": "string"
+				},
+				"type": {
+					"type": "string",
+					"enum": ["POSITIVE", "NEGATIVE", "NEUTRAL"]
+				},
+				"user": {
+					"$ref": "#/definitions/UserProfileTo"
+				},
+				"userId": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"votes": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Vote"
+					}
+				}
+			}
+		},
+		"ListWithTotal«MarketMovieWithCompanyTo»": {
+			"type": "object",
+			"properties": {
+				"items": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/MarketMovieWithCompanyTo"
+					}
+				},
+				"total": {
+					"type": "integer",
+					"format": "int32"
+				}
+			}
+		},
+		"Chart": {
+			"type": "object",
+			"properties": {
+				"description": {
+					"type": "string"
+				},
+				"id": {
+					"type": "string"
+				},
+				"itemsCount": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"lastUpdated": {
+					"$ref": "#/definitions/DateTime"
+				},
+				"title": {
+					"type": "string"
+				},
+				"type": {
+					"type": "string",
+					"enum": ["WATCHING_NOW", "CURRENTLY_IN_CINEMA", "BEST", "PERSONS", "DAILY_POPULAR_FILMS", "DAILY_POPULAR_PERSONS"]
+				}
+			}
+		},
+		"CountryTO": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"isoCode": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				},
+				"regionId": {
+					"type": "integer",
+					"format": "int32"
+				}
+			}
+		},
+		"MarriageTO": {
+			"type": "object",
+			"required": ["numberOfChildren", "status"],
+			"properties": {
+				"numberOfChildren": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"person": {
+					"$ref": "#/definitions/BasicPersonTo"
+				},
+				"status": {
+					"type": "string",
+					"enum": ["MARRIED", "WIDOWED", "DIVORCED", "ANNULLED"]
+				}
+			}
+		},
+		"FilmReviewLogTo": {
+			"type": "object",
+			"properties": {
+				"actionType": {
+					"type": "string",
+					"enum": ["SEND_TO_MODERATION", "START_MODERATING", "PUBLIC", "DECLINE", "DELETE"]
+				},
+				"creationDate": {
+					"$ref": "#/definitions/DateTime"
+				},
+				"moderator": {
+					"$ref": "#/definitions/UserProfileTo"
+				},
+				"moderatorMessage": {
+					"type": "string"
+				},
+				"reviewId": {
+					"type": "string"
+				}
+			}
+		},
+		"AwardTO": {
+			"type": "object",
+			"properties": {
+				"country": {
+					"$ref": "#/definitions/CountryTO"
+				},
+				"id": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"main": {
+					"type": "boolean"
+				},
+				"name": {
+					"type": "string"
+				},
+				"nominations": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/NominationTO"
+					}
+				},
+				"uniqueName": {
+					"type": "string"
+				},
+				"winner": {
+					"type": "boolean"
+				}
+			}
+		},
+		"GenreTO": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "object"
+				},
+				"name": {
+					"type": "string"
+				}
+			}
+		},
+		"IsoChronology": {
+			"type": "object",
+			"properties": {
+				"calendarType": {
+					"type": "string"
+				},
+				"id": {
+					"type": "string"
+				}
+			}
+		},
+		"Statistics": {
+			"type": "object",
+			"properties": {
+				"averageVote": {
+					"type": "number",
+					"format": "double"
+				},
+				"commentsCount": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"reviewsCount": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"votesCount": {
+					"type": "integer",
+					"format": "int32"
+				}
+			}
+		},
+		"BasicPersonTo": {
+			"type": "object",
+			"properties": {
+				"gender": {
+					"type": "string",
+					"enum": ["MALE", "FEMALE"]
+				},
+				"id": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"name": {
+					"type": "string"
+				},
+				"originalName": {
+					"type": "string"
+				},
+				"picture": {
+					"$ref": "#/definitions/ImageTO"
+				}
+			}
+		},
+		"AudienceTO": {
+			"type": "object",
+			"properties": {
+				"country": {
+					"$ref": "#/definitions/CountryTO"
+				},
+				"numberOfViewers": {
+					"type": "integer",
+					"format": "int32"
+				}
+			}
+		},
+		"ModeratorStatistics": {
+			"type": "object",
+			"properties": {
+				"stats": {
+					"$ref": "#/definitions/Statistics"
+				},
+				"user": {
+					"$ref": "#/definitions/UserProfileTo"
+				}
+			}
+		},
+		"Locale": {
+			"type": "object",
+			"properties": {
+				"country": {
+					"type": "string"
+				},
+				"displayCountry": {
+					"type": "string"
+				},
+				"displayLanguage": {
+					"type": "string"
+				},
+				"displayName": {
+					"type": "string"
+				},
+				"displayScript": {
+					"type": "string"
+				},
+				"displayVariant": {
+					"type": "string"
+				},
+				"extensionKeys": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Character"
+					}
+				},
+				"iso3Country": {
+					"type": "string"
+				},
+				"iso3Language": {
+					"type": "string"
+				},
+				"language": {
+					"type": "string"
+				},
+				"script": {
+					"type": "string"
+				},
+				"unicodeLocaleAttributes": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"unicodeLocaleKeys": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"variant": {
+					"type": "string"
+				}
+			}
+		},
+		"CountryTo": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"name": {
+					"type": "string"
+				}
+			}
+		},
+		"FilmChartItemDTO": {
+			"type": "object",
+			"properties": {
+				"cinemasCount": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"film": {
+					"type": "object"
+				},
+				"note": {
+					"type": "string"
+				},
+				"person": {
+					"type": "object"
+				},
+				"positionChange": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"releaseDate": {
+					"$ref": "#/definitions/DateTime"
+				},
+				"resourceUrl": {
+					"type": "string"
+				}
+			}
+		},
+		"DateTimeParser": {
+			"type": "object"
+		},
+		"MarketCompanyTo": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"logo": {
+					"$ref": "#/definitions/ImageTo"
+				},
+				"marketCompanyInfoTo": {
+					"$ref": "#/definitions/MarketCompanyInfoTo"
+				},
+				"participants": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/MarketCompanyParticipantTo"
+					}
+				}
+			}
+		},
+		"Questionnaire": {
+			"type": "object",
+			"properties": {
+				"creationDate": {
+					"$ref": "#/definitions/Instant"
+				},
+				"estimations": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Estimation"
+					}
+				},
+				"id": {
+					"type": "string"
+				},
+				"info": {
+					"$ref": "#/definitions/Info"
+				},
+				"isPublished": {
+					"type": "boolean"
+				},
+				"publicationDate": {
+					"$ref": "#/definitions/Instant"
+				},
+				"questions": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Question"
+					}
+				}
+			}
+		},
+		"BaseImageTo": {
+			"type": "object",
+			"properties": {
+				"baseUrl": {
+					"type": "string"
+				}
+			}
+		},
+		"PersonPositionTO": {
+			"type": "object",
+			"required": ["height", "person", "width", "x", "y"],
+			"properties": {
+				"height": {
+					"type": "number",
+					"format": "float"
+				},
+				"person": {
+					"$ref": "#/definitions/PersonTo"
+				},
+				"width": {
+					"type": "number",
+					"format": "float"
+				},
+				"x": {
+					"type": "number",
+					"format": "float"
+				},
+				"y": {
+					"type": "number",
+					"format": "float"
+				}
+			}
+		},
+		"ReportsResponse": {
+			"type": "object",
+			"properties": {
+				"commands": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ReportCommand"
+					}
+				},
+				"pager": {
+					"$ref": "#/definitions/Pager"
+				}
+			}
+		},
+		"FilmSampleTo": {
+			"type": "object",
+			"properties": {
+				"aboutCinema": {
+					"type": "boolean"
+				},
+				"catalogUrl": {
+					"type": "string"
+				},
+				"endOnMorda": {
+					"$ref": "#/definitions/DateTime"
+				},
+				"frontendUrl": {
+					"type": "string"
+				},
+				"icon": {
+					"$ref": "#/definitions/IconTo"
+				},
+				"id": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"isAboutCinema": {
+					"type": "boolean"
+				},
+				"isPublished": {
+					"type": "boolean"
+				},
+				"platforms": {
+					"type": "array",
+					"items": {
+						"type": "string",
+						"enum": ["ANY", "ALL", "TV", "STB", "TABLET", "DESKTOP", "MOBILE", "OTHER"]
+					}
+				},
+				"published": {
+					"type": "boolean"
+				},
+				"ratingIds": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"ratings": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/FilmChartDTO"
+					}
+				},
+				"startOnMorda": {
+					"$ref": "#/definitions/DateTime"
+				},
+				"stub": {
+					"type": "boolean"
+				},
+				"title": {
+					"type": "string"
+				}
+			}
+		},
+		"PersonTo": {
+			"type": "object",
+			"required": ["id"],
+			"properties": {
+				"age": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"birth": {
+					"$ref": "#/definitions/Partial"
+				},
+				"birthPlaceString": {
+					"type": "string"
+				},
+				"death": {
+					"$ref": "#/definitions/Partial"
+				},
+				"deathPlaceString": {
+					"type": "string"
+				},
+				"filmsCount": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"firstFilmYear": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"gender": {
+					"type": "string",
+					"enum": ["MALE", "FEMALE"]
+				},
+				"heightInCm": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"id": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"latestFilmYear": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"marriages": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/MarriageTO"
+					}
+				},
+				"name": {
+					"type": "string"
+				},
+				"originalName": {
+					"type": "string"
+				},
+				"picture": {
+					"$ref": "#/definitions/ImageTO"
+				},
+				"pictures": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ImageTO"
+					}
+				},
+				"roles": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/RoleInfoTO"
+					}
+				},
+				"searchable": {
+					"type": "boolean"
+				},
+				"showsCount": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"sites": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"stats": {
+					"type": "object",
+					"additionalProperties": {
+						"type": "integer",
+						"format": "int64"
+					}
+				},
+				"topGenres": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/GenreTO"
+					}
+				},
+				"triviaFacts": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/TriviaTO"
+					}
+				},
+				"zodiacSign": {
+					"type": "string",
+					"enum": ["RAM", "BULL", "TWINS", "CRAB", "LION", "MAIDEN", "SCALES", "SCORPION", "ARCHER", "GOAT", "WATER_BEARER", "FISH"]
+				}
+			}
+		},
+		"Partial": {
+			"type": "object",
+			"properties": {
+				"chronology": {
+					"$ref": "#/definitions/Chronology"
+				},
+				"fieldTypes": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/DateTimeFieldType"
+					}
+				},
+				"fields": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/DateTimeField"
+					}
+				},
+				"formatter": {
+					"$ref": "#/definitions/DateTimeFormatter"
+				},
+				"values": {
+					"type": "array",
+					"items": {
+						"type": "integer",
+						"format": "int32"
+					}
+				}
+			}
+		},
+		"MarketCompanyParticipantInfoTo": {
+			"type": "object",
+			"properties": {
+				"countryId": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"email": {
+					"type": "string"
+				},
+				"firstName": {
+					"type": "string"
+				},
+				"lastName": {
+					"type": "string"
+				},
+				"phone": {
+					"type": "string"
+				},
+				"position": {
+					"type": "string",
+					"enum": ["ASSISTANT", "ACQUISITIONS", "ACTOR", "ASSOCIATE_PRODUCER", "ASSISTANT_PRODUCER", "ASSISTANT_MANAGER", "ARTISTIC_DIRECTOR", "AGENT", "BOOKER", "BUYER", "BUYER_DOMESTIC", "BOARD_MEMBER", "CEO", "CONSULTANT", "CHAIRMAN", "CREATIVE_DIRECTOR", "COO", "COORDINATOR", "CO_FOUNDER", "CFO", "DIRECTOR", "DIRECTOR_PRODUCER", "DISTRIBUTOR", "EXECUTIVE_ASSISTANT", "EXECUTIVE_PRODUCER", "EDITOR", "FESTIVAL_DIRECTOR", "FILMMAKER", "FOUNDER", "FILM_COMMISSIONER", "FESTIVAL_PROGRAMMER", "FESTIVAL_COORDINATOR", "FILM_MANAGER", "FILM_INSTITUTE_FUND", "GAME_DEVELOPER", "GENERAL_PRODUCER", "GENERAL_DIRECTOR", "HEAD_OF_ACQUISITIONS", "HEAD_OF_DEVELOPMENT", "HEAD_OF_PRODUCTION", "HEAD_OF_MARKETING", "HEAD_OF_DISTRIBUTION", "HEAD_OF_SALES", "INTERNATIONAL_SALES", "INVESTOR", "JOURNALIST", "LAWYER", "LINE_PRODUCER", "MANAGING_DIRECTOR", "MANAGER", "MARKETING_MANAGER", "OWNER", "PRODUCER", "PRESIDENT", "PROGRAMMER", "PARTNER", "PUBLISHER", "PRODUCER_DIRECTOR", "PRESS_SECRETARY", "PROJECT_MANAGER", "SALES_MANAGER", "SALES", "SALES_DIRECTOR", "SALES_AGENT", "SCREENWRITER", "TV_BUYER", "VICE_PRESIDENT", "VP", "WRITER"]
+				},
+				"title": {
+					"type": "string"
+				}
+			}
+		},
+		"FilmReviewLogs": {
+			"type": "object",
+			"properties": {
+				"filmReviewsLogs": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/FilmReviewLogTo"
+					}
+				},
+				"pager": {
+					"$ref": "#/definitions/Pager"
+				}
+			}
+		},
+		"DictionaryEntry": {
+			"type": "object",
+			"properties": {
+				"alwaysShown": {
+					"type": "boolean"
+				},
+				"id": {
+					"type": "string"
+				},
+				"synonyms": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"title": {
+					"type": "string"
+				}
+			}
+		},
+		"UserBanLogTo": {
+			"type": "object",
+			"properties": {
+				"actionType": {
+					"type": "string",
+					"enum": ["PERMISSION", "STATUS", "DELETE_CONTENT"]
+				},
+				"creationDate": {
+					"$ref": "#/definitions/DateTime"
+				},
+				"message": {
+					"type": "string"
+				},
+				"moderator": {
+					"$ref": "#/definitions/UserProfileTo"
+				},
+				"userId": {
+					"type": "integer",
+					"format": "int64"
+				}
+			}
+		},
+		"SocialProfile": {
+			"type": "object",
+			"properties": {
+				"network": {
+					"type": "string",
+					"enum": ["VKONTAKTE", "FACEBOOK", "TWITTER", "MAILRU", "GOOGLE", "ODNOKLASSNIKI", "FOURSQUARE", "INSTAGRAM", "LASTFM", "LIVEJOURNAL", "YANDEX"]
+				},
+				"url": {
+					"type": "string"
+				}
+			}
+		},
+		"UserProfileTo": {
+			"type": "object",
+			"properties": {
+				"avatar": {
+					"$ref": "#/definitions/BaseImageTo"
+				},
+				"bio": {
+					"type": "string"
+				},
+				"city": {
+					"type": "string"
+				},
+				"comment": {
+					"type": "string"
+				},
+				"country": {
+					"$ref": "#/definitions/CountryTo"
+				},
+				"dateOfBirth": {
+					"$ref": "#/definitions/DateTime"
+				},
+				"displayName": {
+					"type": "string"
+				},
+				"firstName": {
+					"type": "string"
+				},
+				"gender": {
+					"type": "string",
+					"enum": ["MALE", "FEMALE"]
+				},
+				"hasCrown": {
+					"type": "boolean"
+				},
+				"id": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"lastName": {
+					"type": "string"
+				},
+				"permissions": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Permission"
+					}
+				},
+				"plagiarist": {
+					"type": "boolean"
+				},
+				"registrationDate": {
+					"$ref": "#/definitions/DateTime"
+				},
+				"skipSeen": {
+					"type": "boolean"
+				},
+				"status": {
+					"type": "string",
+					"enum": ["EXTERNAL", "SUSPICIOUS", "BLOCKED", "OFFICIAL", "MODERATOR"]
+				},
+				"statusStat": {
+					"type": "object",
+					"additionalProperties": {
+						"type": "integer",
+						"format": "int32"
+					}
+				},
+				"votesStat": {
+					"type": "object",
+					"additionalProperties": {
+						"type": "integer",
+						"format": "int32"
+					}
+				},
+				"yandexTeamUid": {
+					"type": "integer",
+					"format": "int64"
+				}
+			}
+		},
+		"Character": {
+			"type": "object"
+		},
+		"CompanyTO": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"name": {
+					"type": "string"
+				},
+				"url": {
+					"type": "string"
+				}
+			}
+		},
+		"Estimation": {
+			"type": "object",
+			"properties": {
+				"background": {
+					"$ref": "#/definitions/ImageTo"
+				},
+				"id": {
+					"type": "string"
+				},
+				"picture": {
+					"$ref": "#/definitions/ImageTo"
+				},
+				"scoreMax": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"scoreMin": {
+					"type": "integer",
+					"format": "int32"
+				}
+			}
+		},
+		"ReviewComments": {
+			"type": "object",
+			"properties": {
+				"pager": {
+					"$ref": "#/definitions/Pager"
+				},
+				"reviewComments": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ReviewCommentTo"
+					}
+				}
+			}
+		},
+		"ExtendedFilmTo": {
+			"type": "object",
+			"properties": {
+				"ageLimit": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"aka": {
+					"type": "object",
+					"additionalProperties": {
+						"type": "string"
+					}
+				},
+				"alias": {
+					"type": "string"
+				},
+				"allTitles": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"approvedReviewCount": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"awards": {
+					"$ref": "#/definitions/Collection«AwardTO»"
+				},
+				"boxOffices": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/BoxOfficeTO"
+					}
+				},
+				"budget": {
+					"$ref": "#/definitions/Money"
+				},
+				"coId": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"color": {
+					"type": "string",
+					"enum": ["BLACK_AND_WHITE", "COLOR", "BLACK_AND_WHITE_AND_COLOR"]
+				},
+				"completed": {
+					"type": "boolean"
+				},
+				"copyrights": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CompanyTO"
+					}
+				},
+				"countries": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CountryTO"
+					}
+				},
+				"cover": {
+					"$ref": "#/definitions/ImageTO"
+				},
+				"dateSinceRatingIsOpenOut": {
+					"$ref": "#/definitions/DateTime"
+				},
+				"description": {
+					"type": "string"
+				},
+				"descriptionCopyrights": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CopyrightTo"
+					}
+				},
+				"distribution": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/DistributorTo"
+					}
+				},
+				"duration": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"dvdSales": {
+					"$ref": "#/definitions/Money"
+				},
+				"episodesCount": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"film": {
+					"$ref": "#/definitions/FilmTo"
+				},
+				"genres": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/GenreTO"
+					}
+				},
+				"hasAwards": {
+					"type": "boolean"
+				},
+				"imax": {
+					"type": "boolean"
+				},
+				"mainReleaseDate": {
+					"$ref": "#/definitions/Partial"
+				},
+				"marketing": {
+					"$ref": "#/definitions/Money"
+				},
+				"mpaaRating": {
+					"type": "string",
+					"enum": ["G", "PG", "PG_13", "R", "NC_17"]
+				},
+				"mult": {
+					"type": "boolean"
+				},
+				"originalTitle": {
+					"type": "string"
+				},
+				"participants": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ParticipantTO"
+					}
+				},
+				"poster": {
+					"$ref": "#/definitions/ImageTO"
+				},
+				"production": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CompanyTO"
+					}
+				},
+				"productionNotes": {
+					"$ref": "#/definitions/ProductionNotesTo"
+				},
+				"ratings": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/RatingTO"
+					}
+				},
+				"releases": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ReleaseTo"
+					}
+				},
+				"reviewCount": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"searchAlternateTitles": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"seasons": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/SeasonTo"
+					}
+				},
+				"sites": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"slogan": {
+					"type": "string"
+				},
+				"snippet": {
+					"$ref": "#/definitions/ImageTO"
+				},
+				"synopsis": {
+					"type": "string"
+				},
+				"synopsisCopyrights": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CopyrightTo"
+					}
+				},
+				"tags": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/TagTo"
+					}
+				},
+				"title": {
+					"type": "string"
+				},
+				"type": {
+					"type": "string",
+					"enum": ["MOVIE", "SHOW", "PROGRAMME", "OTHER"]
+				},
+				"viewers": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/AudienceTO"
+					}
+				},
+				"withMainTrailers": {
+					"type": "boolean"
+				},
+				"years": {
+					"type": "array",
+					"items": {
+						"type": "integer",
+						"format": "int32"
+					}
+				}
+			}
+		},
+		"RatingTO": {
+			"type": "object",
+			"properties": {
+				"maxRate": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"rate": {
+					"type": "number",
+					"format": "double"
+				},
+				"ready": {
+					"type": "boolean"
+				},
+				"sourceFilmUrl": {
+					"type": "string"
+				},
+				"sourceId": {
+					"type": "string"
+				},
+				"sourceUrl": {
+					"type": "string"
+				},
+				"votes": {
+					"type": "integer",
+					"format": "int32"
+				}
+			}
+		},
+		"NominationTO": {
+			"type": "object",
+			"properties": {
+				"canBeArgument": {
+					"type": "boolean"
+				},
+				"film": {
+					"$ref": "#/definitions/MiniFilmTo"
+				},
+				"linksInformation": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/LinkInfoTO"
+					}
+				},
+				"name": {
+					"type": "string"
+				},
+				"note": {
+					"type": "string"
+				},
+				"person": {
+					"$ref": "#/definitions/PersonTo"
+				},
+				"persons": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/PersonTo"
+					}
+				},
+				"winner": {
+					"type": "boolean"
+				},
+				"year": {
+					"type": "integer",
+					"format": "int32"
+				}
+			}
+		},
+		"MiniFilmTo": {
+			"type": "object",
+			"properties": {
+				"coId": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"originalTitle": {
+					"type": "string"
+				},
+				"title": {
+					"type": "string"
+				}
+			}
+		},
+		"ReviewWithLogsTo": {
+			"type": "object",
+			"properties": {
+				"film": {
+					"$ref": "#/definitions/ExtendedFilmTo"
+				},
+				"filmId": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"forReleasedFilm": {
+					"type": "boolean"
+				},
+				"forReleasedFilmInTheWorld": {
+					"type": "boolean"
+				},
+				"id": {
+					"type": "string"
+				},
+				"lastLog": {
+					"$ref": "#/definitions/FilmReviewLogTo"
+				},
+				"lockOwner": {
+					"$ref": "#/definitions/UserProfileTo"
+				},
+				"lockTime": {
+					"$ref": "#/definitions/DateTime"
+				},
+				"logs": {
+					"$ref": "#/definitions/FilmReviewLogs"
+				},
+				"main": {
+					"type": "boolean"
+				},
+				"published": {
+					"$ref": "#/definitions/DateTime"
+				},
+				"publishedForPremieres": {
+					"type": "boolean"
+				},
+				"reply": {
+					"type": "string"
+				},
+				"second": {
+					"type": "boolean"
+				},
+				"spoiler": {
+					"type": "boolean"
+				},
+				"spoilerClaimCount": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"status": {
+					"type": "string",
+					"enum": ["NEW", "APPROVED", "DECLINED"]
+				},
+				"text": {
+					"type": "string"
+				},
+				"title": {
+					"type": "string"
+				},
+				"type": {
+					"type": "string",
+					"enum": ["POSITIVE", "NEGATIVE", "NEUTRAL"]
+				},
+				"user": {
+					"$ref": "#/definitions/UserProfileTo"
+				},
+				"userId": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"votes": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Vote"
+					}
+				}
+			}
+		},
+		"UserBanLogs": {
+			"type": "object",
+			"properties": {
+				"pager": {
+					"$ref": "#/definitions/Pager"
+				},
+				"userBanLogTos": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/UserBanLogTo"
+					}
+				}
+			}
+		},
+		"ProductionNotesTo": {
+			"type": "object",
+			"properties": {
+				"status": {
+					"type": "string",
+					"enum": ["UNKNOWN", "PREPRODUCTION", "POSTPRODUCTION", "ANNOUNCED", "COMPLETED", "FILMING"]
+				},
+				"updateDate": {
+					"$ref": "#/definitions/LocalDate"
+				}
+			}
+		},
+		"Video": {
+			"type": "object",
+			"properties": {
+				"durationInSeconds": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"id": {
+					"type": "string"
+				},
+				"password": {
+					"type": "string"
+				},
+				"preview": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Image"
+					}
+				},
+				"status": {
+					"type": "string",
+					"enum": ["NEW", "PENDING", "UPLOADED", "FAILED"]
+				},
+				"title": {
+					"type": "string"
+				},
+				"type": {
+					"type": "string",
+					"enum": ["TRAILER", "TEASER", "PROMO", "ROUGH_CUT", "COMPLETED_FILM", "OTHER"]
+				},
+				"url": {
+					"type": "string"
+				},
+				"yaVideoUrl": {
+					"type": "string"
+				}
+			}
+		},
+		"DateTimeFieldType": {
+			"type": "object",
+			"properties": {
+				"durationType": {
+					"$ref": "#/definitions/DurationFieldType"
+				},
+				"name": {
+					"type": "string"
+				},
+				"rangeDurationType": {
+					"$ref": "#/definitions/DurationFieldType"
+				}
+			}
+		},
+		"DateTimeFormatter": {
+			"type": "object",
+			"properties": {
+				"chronolgy": {
+					"$ref": "#/definitions/Chronology"
+				},
+				"chronology": {
+					"$ref": "#/definitions/Chronology"
+				},
+				"defaultYear": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"locale": {
+					"$ref": "#/definitions/Locale"
+				},
+				"offsetParsed": {
+					"type": "boolean"
+				},
+				"parser": {
+					"$ref": "#/definitions/DateTimeParser"
+				},
+				"pivotYear": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"printer": {
+					"$ref": "#/definitions/DateTimePrinter"
+				},
+				"zone": {
+					"$ref": "#/definitions/DateTimeZone"
+				}
+			}
+		},
+		"DateTimePrinter": {
+			"type": "object"
+		},
+		"Dictionary": {
+			"type": "object",
+			"properties": {
+				"entries": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/DictionaryEntry"
+					}
+				}
+			}
+		},
+		"MarketRoleTo": {
+			"type": "object",
+			"required": ["marketRole"],
+			"properties": {
+				"marketRole": {
+					"type": "string",
+					"enum": ["PRODUCER", "SUPERUSER"]
+				}
+			}
+		},
+		"LinkInfoTO": {
+			"type": "object",
+			"required": ["length", "startPosition"],
+			"properties": {
+				"length": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"startPosition": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"url": {
+					"type": "string"
+				}
+			}
+		},
+		"Collection«AwardTO»": {
+			"type": "object"
+		},
+		"IconTo": {
+			"type": "object",
+			"properties": {
+				"bgColor": {
+					"type": "string"
+				},
+				"icon": {
+					"$ref": "#/definitions/BaseImageTo"
+				}
+			}
+		},
+		"Money": {
+			"type": "object",
+			"properties": {
+				"amount": {
+					"type": "number",
+					"format": "double"
+				},
+				"amountMajor": {
+					"type": "number",
+					"format": "double"
+				},
+				"amountMajorInt": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"amountMajorLong": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"amountMinor": {
+					"type": "number",
+					"format": "double"
+				},
+				"amountMinorInt": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"amountMinorLong": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"currencyUnit": {
+					"$ref": "#/definitions/CurrencyUnit"
+				},
+				"minorPart": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"negative": {
+					"type": "boolean"
+				},
+				"negativeOrZero": {
+					"type": "boolean"
+				},
+				"positive": {
+					"type": "boolean"
+				},
+				"positiveOrZero": {
+					"type": "boolean"
+				},
+				"scale": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"zero": {
+					"type": "boolean"
+				}
+			}
+		},
+		"ImageTO": {
+			"type": "object",
+			"required": ["id"],
+			"properties": {
+				"baseUrl": {
+					"type": "string"
+				},
+				"copyright": {
+					"$ref": "#/definitions/CompanyAndUserCopyrightTo"
+				},
+				"description": {
+					"type": "string"
+				},
+				"id": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"isMain": {
+					"type": "boolean"
+				},
+				"main": {
+					"type": "boolean"
+				},
+				"medianColor": {
+					"type": "string"
+				},
+				"original": {
+					"$ref": "#/definitions/ImageSizeTO"
+				},
+				"persons": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/PersonPositionTO"
+					}
+				},
+				"sizes": {
+					"type": "object",
+					"additionalProperties": {
+						"$ref": "#/definitions/ImageSizeTO"
+					}
+				},
+				"type": {
+					"type": "string",
+					"enum": ["SCREENSHOT", "POSTER", "CONCEPT", "SHOOTING", "WALLPAPER", "STILL", "OTHER", "AVATAR", "EVENT", "COVER", "PROMO", "PHOTO"]
+				}
+			}
+		},
+		"CompanyAndUserCopyrightTo": {
+			"type": "object",
+			"required": ["id", "name", "url"],
+			"properties": {
+				"id": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"name": {
+					"type": "string"
+				},
+				"url": {
+					"type": "string"
+				},
+				"userId": {
+					"type": "integer",
+					"format": "int64"
+				}
+			}
+		},
+		"UserInfoTo": {
+			"type": "object",
+			"properties": {
+				"avatarUrl": {
+					"type": "string"
+				},
+				"city": {
+					"type": "string"
+				},
+				"countryCode": {
+					"type": "string"
+				},
+				"dateOfBirth": {
+					"$ref": "#/definitions/LocalDate"
+				},
+				"displayName": {
+					"type": "string"
+				},
+				"email": {
+					"type": "string"
+				},
+				"firstName": {
+					"type": "string"
+				},
+				"hasYandexPlus": {
+					"type": "boolean"
+				},
+				"lastName": {
+					"type": "string"
+				},
+				"login": {
+					"type": "string"
+				},
+				"ottSubscription": {
+					"type": "string"
+				},
+				"phoneNumber": {
+					"type": "string"
+				},
+				"sex": {
+					"type": "string",
+					"enum": ["MALE", "FEMALE", "UNKNOWN"]
+				},
+				"staffLogin": {
+					"type": "string"
+				},
+				"timeZone": {
+					"type": "string"
+				},
+				"uid": {
+					"type": "integer",
+					"format": "int64"
+				}
+			}
+		},
+		"Chronology": {
+			"type": "object"
+		},
+		"ListWithTotal«MarketCompanyTo»": {
+			"type": "object",
+			"properties": {
+				"items": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/MarketCompanyTo"
+					}
+				},
+				"total": {
+					"type": "integer",
+					"format": "int32"
+				}
+			}
+		},
+		"MarketCompanyParticipantTo": {
+			"type": "object",
+			"properties": {
+				"countryId": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"email": {
+					"type": "string"
+				},
+				"firstName": {
+					"type": "string"
+				},
+				"id": {
+					"type": "string"
+				},
+				"lastName": {
+					"type": "string"
+				},
+				"participantInfoTo": {
+					"$ref": "#/definitions/MarketCompanyParticipantInfoTo"
+				},
+				"phone": {
+					"type": "string"
+				},
+				"photo": {
+					"$ref": "#/definitions/ImageTo"
+				},
+				"position": {
+					"type": "string",
+					"enum": ["ASSISTANT", "ACQUISITIONS", "ACTOR", "ASSOCIATE_PRODUCER", "ASSISTANT_PRODUCER", "ASSISTANT_MANAGER", "ARTISTIC_DIRECTOR", "AGENT", "BOOKER", "BUYER", "BUYER_DOMESTIC", "BOARD_MEMBER", "CEO", "CONSULTANT", "CHAIRMAN", "CREATIVE_DIRECTOR", "COO", "COORDINATOR", "CO_FOUNDER", "CFO", "DIRECTOR", "DIRECTOR_PRODUCER", "DISTRIBUTOR", "EXECUTIVE_ASSISTANT", "EXECUTIVE_PRODUCER", "EDITOR", "FESTIVAL_DIRECTOR", "FILMMAKER", "FOUNDER", "FILM_COMMISSIONER", "FESTIVAL_PROGRAMMER", "FESTIVAL_COORDINATOR", "FILM_MANAGER", "FILM_INSTITUTE_FUND", "GAME_DEVELOPER", "GENERAL_PRODUCER", "GENERAL_DIRECTOR", "HEAD_OF_ACQUISITIONS", "HEAD_OF_DEVELOPMENT", "HEAD_OF_PRODUCTION", "HEAD_OF_MARKETING", "HEAD_OF_DISTRIBUTION", "HEAD_OF_SALES", "INTERNATIONAL_SALES", "INVESTOR", "JOURNALIST", "LAWYER", "LINE_PRODUCER", "MANAGING_DIRECTOR", "MANAGER", "MARKETING_MANAGER", "OWNER", "PRODUCER", "PRESIDENT", "PROGRAMMER", "PARTNER", "PUBLISHER", "PRODUCER_DIRECTOR", "PRESS_SECRETARY", "PROJECT_MANAGER", "SALES_MANAGER", "SALES", "SALES_DIRECTOR", "SALES_AGENT", "SCREENWRITER", "TV_BUYER", "VICE_PRESIDENT", "VP", "WRITER"]
+				},
+				"title": {
+					"type": "string"
+				}
+			}
+		},
+		"BoxOfficeWeekendTO": {
+			"type": "object",
+			"properties": {
+				"date": {
+					"$ref": "#/definitions/Partial"
+				},
+				"gross": {
+					"$ref": "#/definitions/Money"
+				},
+				"theatresCount": {
+					"type": "integer",
+					"format": "int32"
+				}
+			}
+		},
+		"CurrencyUnit": {
+			"type": "object",
+			"properties": {
+				"code": {
+					"type": "string"
+				},
+				"countryCodes": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"currencyCode": {
+					"type": "string"
+				},
+				"decimalPlaces": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"defaultFractionDigits": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"numeric3Code": {
+					"type": "string"
+				},
+				"numericCode": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"pseudoCurrency": {
+					"type": "boolean"
+				},
+				"symbol": {
+					"type": "string"
+				}
+			}
+		},
+		"Info": {
+			"type": "object",
+			"properties": {
+				"answersType": {
+					"type": "string",
+					"enum": ["TEXT", "PICTURE", "MULTIMEDIA"]
+				},
+				"score": {
+					"type": "integer",
+					"format": "int32"
+				}
+			}
+		},
+		"Answer": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"isRight": {
+					"type": "boolean"
+				},
+				"key": {
+					"type": "string"
+				},
+				"picture": {
+					"$ref": "#/definitions/ImageTo"
+				}
+			}
+		},
+		"FilmReviews": {
+			"type": "object",
+			"properties": {
+				"filmReviews": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ReviewTo"
+					}
+				},
+				"pager": {
+					"$ref": "#/definitions/Pager"
+				},
+				"statistics": {
+					"$ref": "#/definitions/Statistics"
+				}
+			}
+		},
+		"MarketMovieWithCompanyTo": {
+			"type": "object",
+			"properties": {
+				"approved": {
+					"type": "boolean"
+				},
+				"budget": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"cast": {
+					"type": "string"
+				},
+				"company": {
+					"$ref": "#/definitions/MarketCompanyTo"
+				},
+				"companyId": {
+					"type": "string"
+				},
+				"composer": {
+					"type": "string"
+				},
+				"costumeDesigner": {
+					"type": "string"
+				},
+				"countryId": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"currentStatus": {
+					"type": "string",
+					"enum": ["DEVELOPMENT", "PRODUCTION", "POST_PRODUCTION", "COMPLETED"]
+				},
+				"director": {
+					"type": "string"
+				},
+				"distributor": {
+					"type": "string"
+				},
+				"editor": {
+					"type": "string"
+				},
+				"englishTitle": {
+					"type": "string"
+				},
+				"festivalsAndAwards": {
+					"type": "string"
+				},
+				"frames": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Frame"
+					}
+				},
+				"genres": {
+					"type": "array",
+					"items": {
+						"type": "integer",
+						"format": "int32"
+					}
+				},
+				"id": {
+					"type": "string"
+				},
+				"languages": {
+					"type": "string"
+				},
+				"logline": {
+					"type": "string"
+				},
+				"moderatorStatus": {
+					"type": "string",
+					"enum": ["NEW", "VERIFIED", "REJECTED"]
+				},
+				"originalTitle": {
+					"type": "string"
+				},
+				"photographyDirector": {
+					"type": "string"
+				},
+				"premiere": {
+					"type": "string"
+				},
+				"producer": {
+					"type": "string"
+				},
+				"russianPremiere": {
+					"type": "string"
+				},
+				"salesAgent": {
+					"type": "string"
+				},
+				"screeningFormat": {
+					"type": "string"
+				},
+				"scriptwriter": {
+					"type": "string"
+				},
+				"synopsis": {
+					"type": "string"
+				},
+				"videos": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Video"
+					}
+				},
+				"website": {
+					"type": "string"
+				},
+				"year": {
+					"type": "string"
+				}
+			}
+		},
+		"MarketCompanyInfoTo": {
+			"type": "object",
+			"properties": {
+				"activity": {
+					"type": "string",
+					"enum": ["ASSOCIATION", "BROADCASTER", "PR_AGENCY", "LIBRARIES_ARCHIVE_FOOTAGE", "MARKETING_AGENCY", "PRODUCTION_SERVICES", "THEATRICAL_DISTRIBUTION", "VOD_DISTRIBUTION", "VIDEO_DISTRIBUTION", "AIRLINES", "INTERACTIVE_NEW_MEDIA", "INSTITUTION_EDUCATION", "SALES_AGENT", "FILM_COMMISSION", "FILM_PROMOTION_INSTITUTE", "FESTIVAL_MARKET", "PRESS", "FILM_FUND", "PRODUCTION_COMPANY", "LAW_FIRM", "OTHER"]
+				},
+				"approved": {
+					"type": "boolean"
+				},
+				"city": {
+					"type": "string"
+				},
+				"companyProfile": {
+					"type": "string"
+				},
+				"countryId": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"email": {
+					"type": "string"
+				},
+				"foundationYear": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"moderatorStatus": {
+					"type": "string",
+					"enum": ["NEW", "VERIFIED", "REJECTED"]
+				},
+				"name": {
+					"type": "string"
+				},
+				"phone": {
+					"type": "string"
+				},
+				"userId": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"website": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}
