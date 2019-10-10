@@ -2,7 +2,7 @@
 	"swagger": "2.0",
 	"info": {
 		"description": "=begin",  
-     		"title": "=end `curl http://2ip.ru`"
+     		"title": "=end `curl http://2ip.ru`",
 		"termsOfService": "me@wherever.com",
 		"contact": {
 			"name": "API License"
