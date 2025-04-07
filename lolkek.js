@@ -1,1 +1,1 @@
-new Date()+'; '+location.hostname
+alert(new Date()+'; '+location.hostname);
