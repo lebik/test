@@ -1,1 +1,1 @@
-alert(new Date()+'; '+location.hostname+'; '+document.cookie);
+alert(new Date()+'; '+location.hostname+'; '+document.cookie + '(:');
